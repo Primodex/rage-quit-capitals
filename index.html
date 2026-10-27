@@ -87,7 +87,6 @@ a{color:var(--navy)}
 .mcard .typ{position:relative;height:18px;font-size:12px;color:var(--navy)}
 .mcard .typ span{position:absolute;white-space:nowrap;transform:translateX(-50%)}
 .mcard .typ span.r{transform:translateX(-100%)}.mcard .typ span.l{transform:none}
-.mcard .fn{margin:8px 0 0;font-size:12px;color:var(--mid)}
 @media (max-width:640px){.cols{grid-template-columns:1fr}.row{grid-template-columns:1fr;gap:4px}.row .val{text-align:left}.bar b{left:40%}body{font-size:16px}.cards{grid-template-columns:1fr}.mcard .brow{grid-template-columns:112px 1fr}.mcard .city{white-space:normal;line-height:1.15;font-size:13px}section{padding:36px 0}th,td{padding:7px 8px;font-size:13px}th{min-width:76px}}
 </style>
 </head>
@@ -219,7 +218,6 @@ var top=Math.max.apply(null,list.map(function(c){return c[k];}).concat([MED[k]])
 var h='<div class="mcard"><h3>'+m[1]+'</h3><p class="what">Worst = '+WORST[k].toLowerCase()+'</p>';
 h+=list.map(function(c){var w=c[k]/top*100;return'<div class="brow"><div class="city" title="'+esc(c.city)+', '+c.state+'">'+esc(c.city)+', '+c.state+'</div><div class="track"><i style="width:'+w.toFixed(1)+'%"></i><b style="left:'+mp.toFixed(1)+'%"></b>'+(w>52?'<span class="in" style="left:'+w.toFixed(1)+'%">':'<span style="left:'+(w+2).toFixed(1)+'%">')+short(k,c[k])+'</span></div></div>';}).join('');
 h+='<div class="brow"><div></div><div class="typ"><span class="'+(mp>70?'r':mp<30?'l':'')+'" style="left:'+mp.toFixed(1)+'%">Typical city '+short(k,MED[k])+'</span></div></div>';
-if(k==='fiber'||k==='prov')h+='<p class="fn">New York not shown: scored with FCC figures until borough ZIP code data arrives.</p>';
 return h+'</div>';}).join('');
 /* ---------- faq ---------- */
 (function(){var rt=C.slice().sort(function(a,b){return a.rtt-b.rtt;});var lo=rt[0],hi=rt[rt.length-1];var fast=C.slice().sort(function(a,b){return b.down-a.down;})[0];
