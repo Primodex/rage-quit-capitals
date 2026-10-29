@@ -30,7 +30,9 @@ header.hero{background:linear-gradient(135deg,#17304d 0%,var(--navy) 100%);color
 h1{font-size:clamp(28px,4.6vw,46px);line-height:1.12;margin:0 0 16px;max-width:900px}
 .lede{font-size:clamp(17px,2.2vw,21px);max-width:820px;margin:0;opacity:.95}
 .deck{font-size:clamp(18px,2.4vw,23px);max-width:820px;margin:0;opacity:.95}
-.intro{font-size:clamp(18px,2.2vw,21px);max-width:820px;margin:0}
+.intro{font-size:clamp(18px,2.2vw,21px);max-width:820px;margin:0 0 16px}.intro:last-child{margin-bottom:0}
+.finds{max-width:860px;margin-top:26px}.finds h3{font-size:20px;margin:22px 0 6px}.finds p{margin:0 0 12px}
+.mcard .find{margin:12px 0 2px;padding-top:10px;border-top:1px solid var(--light);font-size:14px;line-height:1.45}
 #intro{padding:36px 0}
 ul.kt{padding-left:22px;margin:0;max-width:860px}ul.kt li{margin-bottom:10px}
 .prose>*{max-width:860px}.prose h3{font-size:20px;margin:26px 0 6px}.prose p{margin:0 0 12px}
@@ -114,7 +116,7 @@ a{color:var(--navy)}
 .mcard .typ{position:relative;height:18px;font-size:12px;color:var(--navy)}
 .mcard .typ span{position:absolute;white-space:nowrap;transform:translateX(-50%)}
 .mcard .typ span.r{transform:translateX(-100%)}.mcard .typ span.l{transform:none}
-@media (max-width:640px){.cols{grid-template-columns:1fr}.row{grid-template-columns:1fr;gap:4px}.row .val{text-align:left}.bar b{left:40%}body{font-size:16px}.cards{grid-template-columns:1fr}.mcard .brow{grid-template-columns:112px 1fr}.mcard .city{white-space:normal;line-height:1.15;font-size:13px}section{padding:36px 0}th,td{padding:7px 8px;font-size:13px}th{min-width:76px}}
+@media (max-width:640px){.grad{width:80px;margin:0 6px}.cols{grid-template-columns:1fr}.row{grid-template-columns:1fr;gap:4px}.row .val{text-align:left}.bar b{left:40%}body{font-size:16px}.cards{grid-template-columns:1fr}.mcard .brow{grid-template-columns:112px 1fr}.mcard .city{white-space:normal;line-height:1.15;font-size:13px}section{padding:36px 0}th,td{padding:7px 8px;font-size:13px}th{min-width:76px}}
 </style>
 </head>
 <body>
@@ -129,7 +131,9 @@ a{color:var(--navy)}
 </div></header>
 
 <section id="intro"><div class="wrap">
-<p class="intro">A fast internet plan does not always mean smooth gameplay. Most players find that out in the middle of a match, when the screen freezes and the other team gets the win. To see where lag hits hardest, we ranked 50 U.S. cities on seven measures of how well home internet holds up for online games. Milwaukee came out worst, and Colorado Springs came out best.</p>
+<p class="intro">A fast internet plan sounds like the cure for laggy games, but it is not always enough. Many players pay for top speeds and still find out in the middle of a match, when the screen freezes and the other team gets the win. Whether your connection is ready for gaming depends on where you live and what your internet actually delivers.</p>
+<p class="intro">To see where lag hits hardest, <a href="https://www.compareinternet.com">CompareInternet</a> scored 50 U.S. cities on seven measures that decide whether a game feels smooth: ping, download and upload speed, how steady ping is, fiber options, provider choice and how often people search for lag fixes.</p>
+<p class="intro">Milwaukee, Detroit and Louisville came out as America's top three rage-quit capitals, with Milwaukee ranked worst of all. The biggest cities, on the other hand, are not the worst places to play. Knowing how your city stacks up makes it easier to look past the speed in an ad and compare plans that hold up when the match is on the line.</p>
 </div></section>
 
 <section id="takeaways"><div class="wrap">
@@ -166,6 +170,10 @@ a{color:var(--navy)}
 <th data-k="lag" class="num">Lag searches compared with a typical city <span class="arr"></span></th>
 </tr></thead><tbody></tbody></table></div>
 <p class="count" id="count"></p>
+<div class="finds">
+<h3>The biggest cities hold up fine</h3>
+<p>None of the five largest cities is in the top 20. New York ranks 25th, Chicago 30th, Phoenix 31st, Los Angeles 36th and Houston 44th.</p>
+</div>
 </div></section>
 
 <section id="map"><div class="wrap">
@@ -176,6 +184,17 @@ a{color:var(--navy)}
 <div class="tip" id="tip"></div>
 </div>
 <div class="legend"><span>Best for gaming <span class="grad"></span> Worst for gaming</span><span><span class="ring"></span>Fast plans, laggy connection</span></div>
+<div class="finds">
+<h3>The Midwest has the worst ping</h3>
+<p>The typical Midwest city sits at 28 ms, compared with 17 ms across all 50 cities. Six of the nine Midwest cities rank in the top 20 rage-quit capitals. That is 67%, the highest share of any region.</p>
+<h3>The South crowds the top of the list</h3>
+<p>Five of the top 10 are Southern: Louisville, Jacksonville, Tampa, Baltimore and Atlanta. The South is also home to seven of the 14 cities with fast plans but laggy connections. The West has four, the Midwest three, and the Northeast none.</p>
+<p>The region is split, though. Fort Worth, Austin and Arlington, all in Texas, rank among the five cities with the best gaming internet.</p>
+<h3>Most Western cities steer clear of the top 20</h3>
+<p>The West has the second-lowest typical ping of any region, at 13 ms. Only 28% of its cities (5 of 18) rank in the top 20. Oakland, at 19th, is the only California city in the top 20. The other eight rank 21st or lower.</p>
+<h3>The Northeast has the smoothest connections</h3>
+<p>The Northeast has the lowest typical ping (7 ms) and the best typical score of any region, and none of its cities ranks in the top 20. Only three Northeast cities are in the study: Boston, New York and Philadelphia.</p>
+</div>
 </div></section>
 
 <section id="worst5"><div class="wrap">
@@ -191,29 +210,6 @@ a{color:var(--navy)}
 <div class="card" id="card"><p class="line" style="color:var(--mid)">Pick a city above to see its full report card.</p></div>
 <div class="cta"><strong>CompareInternet.com is an independent comparison resource, not an internet provider.</strong> 61% of people overpay for their internet, and plans, speeds and prices vary by address. <a href="https://www.compareinternet.com/">Check which providers serve your home by ZIP code</a> before you choose.</div>
 <p class="sub" style="margin-top:18px"><strong>More from CompareInternet.com:</strong> <a href="https://www.compareinternet.com/blog/what-is-ping-the-secret-behind-every-lag-spike/">What Is Ping? The Secret Behind Every Lag Spike</a> &middot; <a href="https://www.compareinternet.com/blog/what-is-packet-loss-jitter-latency-explained/">Packet Loss, Jitter and Latency Explained</a> &middot; <a href="https://www.compareinternet.com/blog/is-2-gig-internet-worth-it/">Is 2 Gig Internet Worth It?</a></p>
-</div></section>
-
-<section id="findings"><div class="wrap prose">
-<h2>Study Findings</h2>
-<h3>Milwaukee's ping kept climbing</h3>
-<p>Milwaukee lands at No. 1 mainly because its ping is the least steady of the 50 cities. Its typical monthly ping climbed from about 12 to 14 ms in late 2024 to more than 20 ms through most of 2026.</p>
-<h3>Gigabit plans do not guarantee a smooth match</h3>
-<p>Fast internet is not the same as gaming-ready internet. Gigabit plans are offered to 99% of homes in Minneapolis and Miami and 98% in Louisville. Even so, Louisville's typical ping is 35 ms, about twice the typical city's 17 ms.</p>
-<h3>El Paso is fast but short on fiber</h3>
-<p>El Paso's typical measured download is about 159 Mbps, among the fastest of the 50 cities. Homes there average only one fiber provider per ZIP code.</p>
-<h3>The biggest cities hold up fine</h3>
-<p>None of the five largest cities is in the top 20. Chicago ranks 30th, New York 25th, Los Angeles 36th and Houston 44th.</p>
-<h3>Minneapolis gamers search for lag fixes the most</h3>
-<p>Minneapolis searches for gaming lag at 1.55 times the level expected for a city its size, and Las Vegas is close behind at 1.54 times. "Fortnite lag" is the most-searched game term in 23 of the 50 cities, including Minneapolis, Detroit and Tampa.</p>
-<h3>The Midwest has the worst ping</h3>
-<p>The typical Midwest city sits at 28 ms, compared with 17 ms across all 50 cities. Six of the nine Midwest cities rank in the top 20 rage-quit capitals. That is 67%, the highest share of any region.</p>
-<h3>The South crowds the top of the list</h3>
-<p>Five of the top 10 are Southern: Louisville, Jacksonville, Tampa, Baltimore and Atlanta. The South is also home to seven of the 14 cities with fast plans but laggy connections. The West has four, the Midwest three, and the Northeast none.</p>
-<p>The region is split, though. Fort Worth, Austin and Arlington are among the five cities with the best gaming internet.</p>
-<h3>Most Western cities steer clear of the top 20</h3>
-<p>The West has the second-lowest typical ping of any region, at 13 ms. Only 28% of its cities (5 of 18) rank in the top 20. Oakland, at 19th, is the only California city in the top 20. The other eight rank 21st or lower.</p>
-<h3>The Northeast has the smoothest connections</h3>
-<p>The Northeast has the lowest typical ping (7 ms) and the best typical score of any region, and none of its cities ranks in the top 20. Only three Northeast cities are in the study: Boston, New York and Philadelphia.</p>
 </div></section>
 
 <section id="sources"><div class="wrap prose">
@@ -289,6 +285,7 @@ document.getElementById('q').addEventListener('input',render);
 document.querySelectorAll('#tbl th').forEach(function(th){th.addEventListener('click',function(){var k=th.dataset.k;if(sortKey===k)sortAsc=!sortAsc;else{sortKey=k;sortAsc=true;}render();});});
 render();
 /* ---------- worst 5 per measure ---------- */
+var FIND={rtt:'<strong>Gigabit plans do not fix ping.</strong> Gigabit plans are offered to 99% of homes in Minneapolis and 98% in Louisville, yet both cities land among the five worst for ping.',down:'<strong>Fast downloads are not the whole story.</strong> El Paso\u2019s typical measured download is about 159 Mbps, among the fastest of the 50 cities, yet it still ranks 15th worst overall. Only Tampa has fewer fiber providers per ZIP code.',cv:'<strong>Milwaukee\u2019s ping kept climbing.</strong> Its typical monthly ping rose from about 12 to 14 ms in late 2024 to more than 20 ms through most of 2026. That swing is the main reason Milwaukee ranks worst overall.',lag:'<strong>Fortnite leads the lag searches.</strong> \u201cFortnite lag\u201d is the most-searched game lag term in 23 of the 50 cities, including Minneapolis, Detroit and Tampa.'};
 var WORST={rtt:'Highest ping at the top',down:'Slowest downloads at the top',up:'Slowest uploads at the top',cv:'Biggest month-to-month swings at the top',fiber:'Fewest fiber providers at the top',prov:'Fewest internet providers at the top',lag:'Most lag searches for their size at the top'};
 function short(k,v){if(k==='fiber')return v.toFixed(2);if(k==='cv')return v.toFixed(3);if(k==='prov')return v.toFixed(2);if(k==='lag')return v.toFixed(2)+'x';return v.toFixed(1)+(k==='rtt'?' ms':' Mbps');}
 document.getElementById('cards').innerHTML=MEAS.map(function(m){var k=m[0];
@@ -297,7 +294,7 @@ var top=Math.max.apply(null,list.map(function(c){return c[k];}).concat([MED[k]])
 var h='<div class="mcard"><h3>'+m[1]+'</h3><p class="what">'+WORST[k]+'</p>';
 h+=list.map(function(c){var w=c[k]/top*100;return'<div class="brow"><div class="city" title="'+esc(c.city)+', '+c.state+'">'+esc(c.city)+', '+c.state+'</div><div class="track"><i style="width:'+w.toFixed(1)+'%"></i><b style="left:'+mp.toFixed(1)+'%"></b>'+(w>52?'<span class="in" style="left:'+w.toFixed(1)+'%">':'<span style="left:'+(w+2).toFixed(1)+'%">')+short(k,c[k])+'</span></div></div>';}).join('');
 h+='<div class="brow"><div></div><div class="typ"><span class="'+(mp>70?'r':mp<30?'l':'')+'" style="left:'+mp.toFixed(1)+'%">Typical city '+short(k,MED[k])+'</span></div></div>';
-return h+'</div>';}).join('');
+return h+(FIND[k]?'<p class="find">'+FIND[k]+'</p>':'')+'</div>';}).join('');
 /* ---------- map ---------- */
 var smin=Math.min.apply(null,C.map(function(c){return c.score;})),smax=Math.max.apply(null,C.map(function(c){return c.score;}));
 function lerp(a,b,t){return Math.round(a+(b-a)*t);}
