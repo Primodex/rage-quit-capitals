@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>America's Rage-Quit Capitals | 50 U.S. Cities Ranked by Gaming Internet</title>
-<meta name="description" content="Milwaukee tops America's Rage-Quit Capitals, a ranking of 50 U.S. cities by how well their internet holds up for online gaming.">
+<meta name="description" content="Milwaukee, Detroit and Louisville rank worst for gaming internet. See how 50 U.S. cities score on ping, speeds, fiber and more.">
 <meta property="og:title" content="America's Rage-Quit Capitals">
-<meta property="og:description" content="Milwaukee tops America's Rage-Quit Capitals, a ranking of 50 U.S. cities by how well their internet holds up for online gaming.">
+<meta property="og:description" content="Milwaukee, Detroit and Louisville rank worst for gaming internet. See how 50 U.S. cities score on ping, speeds, fiber and more.">
 <meta property="og:type" content="article">
 <meta property="og:image" content="/og.png">
 <style>
@@ -199,7 +199,7 @@ a{color:var(--navy)}
 
 <section id="worst5"><div class="wrap">
 <h2>The Five Worst Cities on Each Measure</h2>
-<p class="sub">Louisville has the worst ping, Detroit has the slowest downloads, and Milwaukee has the shakiest ping from one month to the next. Here are the five cities at the bottom of each list. The dashed line shows the typical city, the one in the middle of the 50.</p>
+<p class="sub">Louisville has the worst ping, Detroit has the slowest downloads, and Milwaukee has the shakiest ping from one month to the next. Here are the five cities at the bottom of each list. Typical city is the middle of the 50.</p>
 <div class="cards" id="cards"></div>
 </div></section>
 
@@ -262,6 +262,17 @@ a{color:var(--navy)}
 </details>
 </div></section>
 
+<section id="about"><div class="wrap prose">
+<h2>About Compare Internet</h2>
+<p>CompareInternet.com helps people compare home internet providers and plans by ZIP code, read real customer reviews and find offers in their area. It's an independent comparison resource and doesn't provide internet service.</p>
+<p><a href="https://www.compareinternet.com/">Find providers in your area</a></p>
+</div></section>
+
+<section id="fairuse"><div class="wrap prose">
+<h2>Fair Use Statement</h2>
+<p>You're welcome to share the findings and graphics from this study for any noncommercial purpose. Please link back to this page as the source.</p>
+</div></section>
+
 <footer><div class="wrap">America's Rage-Quit Capitals is a CompareInternet.com study. CompareInternet.com is operated by Infinity Sales Group, LLC.</div></footer>
 
 <script>
@@ -274,7 +285,8 @@ function ord(n){var s=['th','st','nd','rd'],v=n%100;return n+(s[(v-20)%10]||s[v]
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 /* ---------- ranking table ---------- */
 var RNK={};MEAS.forEach(function(m){var k=m[0];var l=C.slice().sort(function(a,b){return (b[k+'_z']-a[k+'_z'])||(a.rank-b.rank);});RNK[k]={};l.forEach(function(c,i){RNK[k][c.rank]=i+1;});});
-function mrank(c,k){return RNK[k][c.rank];}
+function mrank(c,k){return c[k+'_rank'];}
+function bpos(c,k){return C.filter(function(x){return x[k+'_rank']>c[k+'_rank'];}).length+1;}
 var sortKey='orank',sortAsc=true;
 function render(){var q=document.getElementById('q').value.trim().toLowerCase();var rs=C.filter(function(c){return!q||(c.city+', '+c.state).toLowerCase().indexOf(q)>=0;});
 rs.sort(function(a,b){var x,y;if(sortKey==='orank'){x=a.rank;y=b.rank;}else if(sortKey==='label'){x=a.city;y=b.city;}else{x=mrank(a,sortKey);y=mrank(b,sortKey);}if(x<y)return sortAsc?-1:1;if(x>y)return sortAsc?1:-1;return a.rank-b.rank;});
@@ -312,7 +324,7 @@ function card(c){var avail=MEAS.filter(function(m){return c[m[0]]!==null;});var 
 var nworse=avail.filter(function(m){return worseThanTypical(m[0],c[m[0]]);}).length;
 var h='<h3>How '+esc(c.city)+', '+c.state+' Stacks Up</h3>';
 h+='<p class="line"><span class="big">'+ord(c.rank)+' <small>of 50 (No. 1 is worst)</small></span></p>';
-h+='<p class="line">'+esc(c.city)+' trails the typical city on '+nworse+' of '+avail.length+' measures. Its weakest spot is <strong>'+worst[1].toLowerCase()+'</strong> ('+(c[worst[0]]===null?'FCC figures':fmt(worst[0],c[worst[0]]))+', '+(mrank(c,worst[0])===1?'worst of 50':ord(mrank(c,worst[0]))+' worst')+'). Its strongest is '+bestm[1].toLowerCase()+' ('+(mrank(c,bestm[0])===50?'best of 50':ord(51-mrank(c,bestm[0]))+' best')+').</p>';
+h+='<p class="line">'+esc(c.city)+' trails the typical city on '+nworse+' of '+avail.length+' measures. Its weakest spot is <strong>'+worst[1].toLowerCase().replace('zip','ZIP')+'</strong> ('+(c[worst[0]]===null?'FCC figures':fmt(worst[0],c[worst[0]]))+', '+(mrank(c,worst[0])===1?'worst of 50':ord(mrank(c,worst[0]))+' worst')+'). Its strongest is '+bestm[1].toLowerCase().replace('zip','ZIP')+' ('+(bpos(c,bestm[0])===1?(C.filter(function(x){return x[bestm[0]+'_rank']===c[bestm[0]+'_rank'];}).length>1?'tied for best of 50':'best of 50'):ord(bpos(c,bestm[0]))+' best')+').</p>';
 var GUIDES={'New York':'https://www.compareinternet.com/ny/new-york/','Los Angeles':'https://www.compareinternet.com/ca/los-angeles/','Chicago':'https://www.compareinternet.com/il/chicago/','Dallas':'https://www.compareinternet.com/tx/dallas/','Philadelphia':'https://www.compareinternet.com/pa/philadelphia/','Atlanta':'https://www.compareinternet.com/ga/atlanta/'};
 if(GUIDES[c.city])h+='<p class="line"><a href="'+GUIDES[c.city]+'">Compare internet providers in '+esc(c.city)+'</a></p>';
 if(c.laggy)h+='<p class="line"><span class="tag">Fast plans, laggy connection</span> '+esc(c.reason.charAt(0).toUpperCase()+c.reason.slice(1))+'.</p>';
